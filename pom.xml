@@ -25,9 +25,11 @@
         <javax.servlet.jsp-api.version>2.3.1</javax.servlet.jsp-api.version>
         <javax.el-api.version>3.0.0</javax.el-api.version>
         <jstl.version>1.2</jstl.version>
+
         <jackson-databind.version>2.9.8</jackson-databind.version>
         <jackson-annotations.version>2.9.8</jackson-annotations.version>
-        <mysql-connector-java.version>8.0.11</mysql-connector-java.version>
+
+        <mysql-connector-java.version>5.1.45</mysql-connector-java.version>
         <commons-dbcp2.version>2.5.0</commons-dbcp2.version>
         <commons-dbutils.version>1.7</commons-dbutils.version>
     </properties>

@@ -7,8 +7,8 @@ import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -25,9 +25,24 @@ public class DBHelper {
     static {
 
         try {
-            FileInputStream is = new FileInputStream("/dbcp.properties");
+            //FileInputStream is = new FileInputStream("/dbcp.properties");
+            InputStream is=DBHelper.class.getClassLoader().getResourceAsStream("dbcp.properties");
             properties.load(is);
-        } catch (IOException e) {
+
+            //properties.setProperty("driverClassName", "com.mysql.cj.jdbc.Driver");
+            //properties.setProperty("url","jdbc:mysql://127.0.0.1:3306/cdagency?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC");
+            //properties.setProperty("username","root");
+            //properties.setProperty("password","123456!@#");
+            //properties.setProperty("maxActive","30");
+            //properties.setProperty("maxIdle","10");
+            //properties.setProperty("maxWait","1000");
+            //properties.setProperty("removeAbandoned","false");
+            //properties.setProperty("removeAbandonedTimeout","120");
+            //properties.setProperty("testOnBorrow","true");
+            //properties.setProperty("logAbandoned","true");
+
+        }
+        catch (IOException e) {
             throw new RuntimeException("数据库配置文件读取失败", e);
         }
 
@@ -82,6 +97,7 @@ public class DBHelper {
                 throw new RuntimeException("提交事务失败", e);
             } finally {
                 t.remove();
+                conn=null;
             }
         }
     }
@@ -99,6 +115,7 @@ public class DBHelper {
                 throw new RuntimeException("回滚事务失败", e);
             } finally {
                 t.remove();
+                conn=null;
             }
         }
     }
@@ -121,7 +138,7 @@ public class DBHelper {
 
     public static void closeAuto()
     {
-        Connection conn = getConn();
+        /*Connection conn = getConn();
 
         try {
             if(conn.getAutoCommit())
@@ -130,7 +147,7 @@ public class DBHelper {
             }
         } catch (SQLException e) {
             throw new RuntimeException("获取连接是否自动提交失败",e);
-        }
+        }*/
 
 
     }
@@ -198,7 +215,7 @@ public class DBHelper {
     /**
      * 插入实体
      */
-    public static <T>  boolean insertEntity(Class<T> entityClass,String tbName, Map<String, Object> fieldMap) {
+    public static <T>  boolean insertEntity(String tbName, Map<String, Object> fieldMap) {
         if (fieldMap==null||fieldMap.isEmpty()) {
             return false;
         }
@@ -221,7 +238,7 @@ public class DBHelper {
     /**
      * 更新实体
      */
-    public static <T>  boolean updateEntity(Class<T> entityClass,String tbName, String id, Map<String, Object> fieldMap) {
+    public static <T>  boolean updateEntity(String tbName, String id, Map<String, Object> fieldMap) {
         if (fieldMap==null||fieldMap.isEmpty()) {
             return false;
         }
@@ -241,7 +258,7 @@ public class DBHelper {
         return executeUpdate(sql, params) == 1;
     }
 
-    public static <T> boolean fakedeleteEntity(Class<T> entityClass,String tbName,  String id)
+    public static <T> boolean fakedeleteEntity(String tbName,  String id)
     {
         String sql = "update " + tbName + " set isdel=0 where pkid='"+id+"'";
 
@@ -251,7 +268,7 @@ public class DBHelper {
     /**
      * 删除实体
      */
-    public static <T>  boolean deleteEntity(Class<T> entityClass,String tbName,  Object... params) {
+    public static <T>  boolean deleteEntity(String tbName,  Object... params) {
         String sql = "delete from " + tbName + " where pkid=?";
 
         return executeUpdate(sql, params) == 1;

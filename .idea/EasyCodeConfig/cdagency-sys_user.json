@@ -1,0 +1,234 @@
+{
+  "name" : "SysUser",
+  "comment" : "Sys系统平台用户表",
+  "fullColumn" : [ {
+    "name" : "pkid",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "loginname",
+    "comment" : "用户账号",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "loginpwd",
+    "comment" : "登录口令",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "truename",
+    "comment" : "真实姓名",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "sex",
+    "comment" : "性别（1-男，0-女，100无）",
+    "type" : "java.lang.Integer",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "deptid",
+    "comment" : "部门ID（如果是企业则为企业信息ID）",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "deptname",
+    "comment" : "部门名称(冗)",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "photopath",
+    "comment" : "照片地址",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "officephone",
+    "comment" : "办公电话",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "mobilephone",
+    "comment" : "手机号码",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "email",
+    "comment" : "电子邮箱",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "dutyid",
+    "comment" : "职务ID",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "dutyname",
+    "comment" : "职务名称",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "usercode",
+    "comment" : "员工编号",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "roleid",
+    "comment" : "角色ID（存储格式如：,12,13,14,）",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "castrs",
+    "comment" : "证书内取出字符串（存储格式如：12^13,14）",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "usertype",
+    "comment" : "用户类别：0-内部用户、1-企业注册入库、2-采购单位",
+    "type" : "java.lang.Integer",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "biztype",
+    "comment" : "业务类型(存储格式如：,12,13,14,类型代码 详见数据字典)",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "isstorage",
+    "comment" : "是否通过入库审核 0-否，1-是,2不需要审核，3再次提交修改中",
+    "type" : "java.lang.Integer",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "ordshow",
+    "comment" : "排序",
+    "type" : "java.lang.Integer",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "usestate",
+    "comment" : "使用状态 0-停用，1-使用",
+    "type" : "java.lang.Integer",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "remark",
+    "comment" : "备注",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "createrid",
+    "comment" : "创建人ID",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "creatername",
+    "comment" : "创建人名称",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "createtime",
+    "comment" : "创建时间",
+    "type" : "java.util.Date",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "updaterid",
+    "comment" : "更新人ID",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "updatername",
+    "comment" : "更新人名称",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "updatetime",
+    "comment" : "更新时间",
+    "type" : "java.util.Date",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "isdel",
+    "comment" : "是否删除 (1-是，0-否)",
+    "type" : "java.lang.Integer",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "delerid",
+    "comment" : "删除人ID",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "delername",
+    "comment" : "删除人名称",
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "deltime",
+    "comment" : "删除时间",
+    "type" : "java.util.Date",
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "",
+  "savePath" : "./service/src/main/java",
+  "saveModelName" : "service"
+}

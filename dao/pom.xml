@@ -11,5 +11,20 @@
 
     <artifactId>dao</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.mvc</groupId>
+            <artifactId>commons</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mvc</groupId>
+            <artifactId>entity</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
+
 
 </project>
