@@ -38,7 +38,7 @@ public class LoginAction extends javax.servlet.http.HttpServlet {
                             return;
                         } else {
                             request.getSession().setAttribute("UserInfo",userModel);
-                            response.sendRedirect(path+ "/views/user_list.jsp");
+                            response.sendRedirect(path+ "/UserListServlet?method=findall&pc=1");
                             //return;
                         }
                     }
