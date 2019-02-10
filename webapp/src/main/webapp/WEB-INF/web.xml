@@ -10,4 +10,9 @@
         <welcome-file>/views/login.jsp</welcome-file>
     </welcome-file-list>
 
+    <session-config>
+        <!--30分钟-->
+        <session-timeout>30</session-timeout>
+    </session-config>
+
 </web-app>
