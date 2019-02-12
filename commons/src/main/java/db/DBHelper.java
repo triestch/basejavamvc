@@ -136,7 +136,7 @@ public class DBHelper {
     }
 
     public static void closeAuto() {
-        /*Connection conn = getConn();
+        Connection conn = getConn();
 
         try {
             if(conn.getAutoCommit())
@@ -145,7 +145,7 @@ public class DBHelper {
             }
         } catch (SQLException e) {
             throw new RuntimeException("获取连接是否自动提交失败",e);
-        }*/
+        }
 
 
     }
