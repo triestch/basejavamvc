@@ -17,12 +17,15 @@ public class EncodingRequest extends HttpServletRequestWrapper {
 
 
     public String getParameter(String s) {
+        if(request.getParameter(s)==null) {
+            return "";
+        }
         String value=request.getParameter(s);
-        try {
+        /*try {
             value=new String(value.getBytes("iso-8859-1"),"utf-8");
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException("过滤器转换字符集失败",e);
-        }
+        }*/
 
         return value;
     }

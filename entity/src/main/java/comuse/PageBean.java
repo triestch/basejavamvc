@@ -10,6 +10,7 @@ public class PageBean<T> {
     private String tbColumn;
     private String tbWhere;
     private String tbOrder;
+    private String listurl;
 
     //当前页
     private int pc=1;
@@ -117,6 +118,13 @@ public class PageBean<T> {
         this.tbOrder = tbOrder;
     }
 
+    public String getListurl() {
+        return listurl;
+    }
+
+    public void setListurl(String listurl) {
+        this.listurl = listurl;
+    }
 
 }
 

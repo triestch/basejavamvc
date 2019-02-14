@@ -19,19 +19,49 @@
         }
 
         function searchInfo() {
+            var v=true;
 
+/*            if($.trim($("#slogname1").val())==""&&$.trim($("#sname1").val())=="")
+            {
+                v=false;
+                alert("请录入查询信息");
+            }*/
+
+            return v;
         }
 
         function delinfo(pkid) {
-
+            alert(pkid);
+        }
+        
+        function  pageDeal(flag) {
+            switch (flag)
+            {
+                case 0:
+                    window.location.href="";
+                    break;
+                case 1:
+                    window.location.href="";
+                    break;
+                case 2:
+                    window.location.href="";
+                    break;
+                case 3:
+                    window.location.href="";
+                    break;
+            }
         }
 
     </script>
 </head>
 <body>
+<form action="${path}/UserListServlet?method=findall&pc=1" method="post">
 <a href="#" onclick="addInfo()">新增</a>
 &nbsp;&nbsp;&nbsp;
-<a href="#" onclick="searchInfo()">查询</a>
+    登录名:<input type="text" name="slogname" id="slogname1" value="${slogname}"  />
+    姓名:<input type="text" name="sname" id="sname1" value="${sname}" />
+    <input type="submit" value="查询" onclick="return searchInfo()" />
+</form>
 <h3>用户列表信息</h3>
 
 <table border="1" cellpadding="0" cellspacing="0">
@@ -50,21 +80,22 @@
             <td><fmt:formatDate value="${cstm.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
             <td>
                 <a href="<c:url value="/UserListServlet?method=edit&id=${cstm.pkid}"/>">编辑</a>
-                <a href="#" onclick="delinfo(${cstm.pkid})">删除</a>
+                <a href="#" onclick="delinfo('${cstm.pkid}')">删除</a>
             </td>
         </tr>
     </c:forEach>
 </table>
-<a href="${path}/UserListServlet?method=findall&pc=1">首页</a>
+<a href="${path}${pageBean.listurl}">首页</a>
 <c:if test="${pageBean.pc>1}">
-<a href="${path}/UserListServlet?method=findall&pc=${pageBean.pc-1}">上一页</a>
+<a href="${path}${pageBean.listurl}&pc=${pageBean.pc-1}">上一页</a>
 </c:if>
 <c:if test="${pageBean.pc<pageBean.tp}">
-<a href="${path}/UserListServlet?method=findall&pc=${pageBean.pc+1}">下一页</a>
+<a href="${path}${pageBean.listurl}&pc=${pageBean.pc+1}">下一页</a>
 </c:if>
-<a href="${path}/UserListServlet?method=findall&pc=${pageBean.tp}">末页</a>
+<a href="${path}${pageBean.listurl}&pc=${pageBean.tp}">末页</a>
 
 第${pageBean.pc}页
+共${pageBean.tp}页
 
 </body>
 </html>

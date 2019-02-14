@@ -17,10 +17,14 @@ public class Filter001Encoding implements Filter {
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("text/html; charset=utf-8");
 
-        //post
-        req.setCharacterEncoding("UTF-8");
-
         HttpServletRequest request=(HttpServletRequest)req;
+        EncodingRequest er=new EncodingRequest(request);
+        //post
+        er.setCharacterEncoding("UTF-8");
+
+        chain.doFilter(er, resp);
+
+        /*HttpServletRequest request=(HttpServletRequest)req;
 
         if(request.getMethod().equals("GET"))
         {
@@ -30,7 +34,7 @@ public class Filter001Encoding implements Filter {
         else if(request.getMethod().equals("POST"))
         {
             chain.doFilter(req, resp);
-        }
+        }*/
 
     }
 
