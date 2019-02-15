@@ -24,7 +24,7 @@ public class Filter002UserSession implements Filter {
         HttpServletRequest request = (HttpServletRequest) req;
         String projectName=request.getContextPath();
         String path=request.getRequestURI();
-        path=path.replace("/basemvc","");
+        path=path.replace("/webapp","");
 
         if(noCheckPage.contains(path)||path.endsWith(projectName)||path.endsWith(".css") || path.endsWith(".js") ){
             chain.doFilter(req, resp);
