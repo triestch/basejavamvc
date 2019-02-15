@@ -32,6 +32,7 @@
         <mysql-connector-java.version>5.1.45</mysql-connector-java.version>
         <commons-dbcp2.version>2.5.0</commons-dbcp2.version>
         <commons-dbutils.version>1.7</commons-dbutils.version>
+        <commons-fileupload.version>1.4</commons-fileupload.version>
     </properties>
 
     <dependencyManagement>
@@ -104,6 +105,12 @@
                 <version>${commons-dbutils.version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${commons-fileupload.version}</version>
+            </dependency>
 
 
 

@@ -23,6 +23,8 @@ public class UserListServlet extends HttpServlet {
             case "findall":
                 reurl=queryInfo(request,response);
                 break;
+                default:
+                    throw new RuntimeException("异常代码");
         }
 
         request.getRequestDispatcher(reurl).forward(request, response);
@@ -48,7 +50,7 @@ public class UserListServlet extends HttpServlet {
         urlStr.append("/UserListServlet?method=findall");
 
         StringBuffer whereStr=new StringBuffer();
-        whereStr.append(" where 1=1 ");
+        whereStr.append(" where isdel=0 ");
 
         String slogname=request.getParameter("slogname").trim();
         String sname=request.getParameter("sname").trim();
@@ -71,7 +73,7 @@ public class UserListServlet extends HttpServlet {
         pageBean.setTbId("pkid");
         pageBean.setTbColumn("pkid,loginname,truename,createtime");
         pageBean.setTbWhere(whereStr.toString());
-        pageBean.setTbOrder(" order by truename asc ");
+        pageBean.setTbOrder(" order by createtime desc,truename asc ");
         pageBean.setListurl(urlStr.toString());
 
 

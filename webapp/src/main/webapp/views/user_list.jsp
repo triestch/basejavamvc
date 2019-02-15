@@ -14,9 +14,6 @@
     <c:set value="${pageContext.request.contextPath}" var="path" scope="page"/>
     <script src="${path}/js/jquery-1.8.0.min.js" type="text/javascript"></script>
     <script type="text/javascript">
-        function addInfo() {
-
-        }
 
         function searchInfo() {
             var v=true;
@@ -31,32 +28,33 @@
         }
 
         function delinfo(pkid) {
-            alert(pkid);
+            $.ajax({
+                type: "POST",
+                url: "${path}/DelUserServlet",
+                data: { action: "DelInfo", pkid: pkid },
+                dataType: "json",
+                success: function (result) {
+                    if (result.success) {
+                        alert("删除信息操作成功");
+                        window.location.href="${path}/UserListServlet?method=findall";
+                    }
+                    else {
+                        alert(result.msg);
+                    }
+                },
+                error: function () {
+                    alert("系统发生异常错误，删除信息失败.");
+                    return;
+                }
+            });
         }
-        
-        function  pageDeal(flag) {
-            switch (flag)
-            {
-                case 0:
-                    window.location.href="";
-                    break;
-                case 1:
-                    window.location.href="";
-                    break;
-                case 2:
-                    window.location.href="";
-                    break;
-                case 3:
-                    window.location.href="";
-                    break;
-            }
-        }
+
 
     </script>
 </head>
 <body>
 <form action="${path}/UserListServlet?method=findall&pc=1" method="post">
-<a href="#" onclick="addInfo()">新增</a>
+<a href="${path}/views/add.jsp">新增</a>
 &nbsp;&nbsp;&nbsp;
     登录名:<input type="text" name="slogname" id="slogname1" value="${slogname}"  />
     姓名:<input type="text" name="sname" id="sname1" value="${sname}" />
@@ -79,7 +77,8 @@
             <td>${cstm.truename}</td>
             <td><fmt:formatDate value="${cstm.createtime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
             <td>
-                <a href="<c:url value="/UserListServlet?method=edit&id=${cstm.pkid}"/>">编辑</a>
+                <a href="<c:url value="/EditServlet?method=edit&id=${cstm.pkid}"/>">编辑</a>
+                <a href="<c:url value="/EditServlet?method=view&id=${cstm.pkid}"/>">查看</a>
                 <a href="#" onclick="delinfo('${cstm.pkid}')">删除</a>
             </td>
         </tr>

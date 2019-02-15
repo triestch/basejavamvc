@@ -18,7 +18,6 @@ public abstract class BaseService<T> implements IBaseService<T> {
     }
 
     public T queryEntity(String sql, Object... params) {
-
         return CurrentDao.queryEntity(sql, params);
     }
 
